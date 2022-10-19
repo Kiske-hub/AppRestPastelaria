@@ -4,7 +4,11 @@ bp_index = Blueprint('index', __name__, url_prefix="/", template_folder='templat
 
 ''' rotas do index '''
 
-@bp_index.route('/')
+@bp_index.route('/', methods=['GET', 'POST'])
 def formListaIndex():
-    return render_template('formListaIndex.html'), 200
+    return render_template('formListaIndex.html')
+
+@bp_index.route('/form-index/', methods=['GET'])
+def formIndex():
+    return render_template('formIndex.html')
 
